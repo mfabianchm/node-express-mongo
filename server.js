@@ -8,6 +8,7 @@ const express = require("express");
 const expressLayouts = require("express-ejs-layouts");
 const indexRouter = require("./routes/index.js");
 const authorRouter = require("./routes/authors.js");
+const bookRouter = require("./routes/books.js");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 
@@ -29,5 +30,6 @@ db.once("open", () => console.log("Connected to Mongoose"));
 
 app.use("/", indexRouter);
 app.use("/authors", authorRouter);
+app.use("/books", bookRouter);
 
 app.listen(process.env.PORT || 3000);
